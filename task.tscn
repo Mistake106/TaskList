@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bpvkygifd0832"]
+
+[node name="Task" type="Button"]
+offset_right = 400.0
+offset_bottom = 103.0

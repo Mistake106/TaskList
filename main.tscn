@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://658a8m0tv7co"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_hdtwm"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_hdtwm")
+
+[node name="AddTaskButton" type="Button" parent="."]
+offset_left = 408.0
+offset_top = 128.0
+offset_right = 512.0
+offset_bottom = 231.0
+text = "ADD"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_top = 128.0
+offset_right = 400.0
+offset_bottom = 231.0
+theme_override_font_sizes/font_size = 25
+placeholder_text = "type task here"
+wrap_mode = 1
+
+[node name="PendingTaskList" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1.28129, 0.778021)
+
+[node name="CompleteTaskList" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 256.0
+offset_right = 40.0
+offset_bottom = 296.0
+
+[connection signal="pressed" from="AddTaskButton" to="." method="_on_add_task_button_pressed"]
