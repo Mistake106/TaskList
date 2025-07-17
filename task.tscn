@@ -1,5 +1,20 @@
-[gd_scene format=3 uid="uid://bpvkygifd0832"]
+[gd_scene load_steps=2 format=3 uid="uid://bpvkygifd0832"]
+
+[ext_resource type="Script" uid="uid://bqtdju46argjj" path="res://task.gd" id="1_3qm7i"]
 
 [node name="Task" type="Button"]
 offset_right = 400.0
 offset_bottom = 103.0
+script = ExtResource("1_3qm7i")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 18.0
+offset_right = 471.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 39
+text = "X"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -12,3 +12,9 @@ func addTask(description: String):
 	var task = taskPath.instantiate()
 	$PendingTaskList.add_child(task)
 	task.text = description
+	$TextEdit.text = ""
+	
+func finishTask(c_task):
+	c_task.reparent($CompleteTaskList)
+	c_task.global_position = $CompleteTaskList.global_position
+	#$CompleteTaskList.add_child(c_task)
