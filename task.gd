@@ -7,4 +7,4 @@ func _on_button_pressed() -> void:
 
 
 func _on_pressed() -> void:
-	isComplete = true
+	isComplete = !isComplete
