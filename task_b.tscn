@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmexklp4xgtsk"]
+
+[ext_resource type="Script" uid="uid://bqtdju46argjj" path="res://task.gd" id="1_57a6j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57a6j"]
+bg_color = Color(0.980392, 0.784314, 0, 1)
+
+[node name="TaskBackground" type="Panel"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_57a6j")
+script = ExtResource("1_57a6j")
+
+[node name="TextButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.98
+
+[node name="DeleteButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[connection signal="pressed" from="TextButton" to="." method="_on_text_button_pressed"]
+[connection signal="pressed" from="DeleteButton" to="." method="_on_delete_button_pressed"]

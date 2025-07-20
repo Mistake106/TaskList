@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://658a8m0tv7co"]
 
 [ext_resource type="Script" uid="uid://6hha3rp0y06x" path="res://main.gd" id="1_hdtwm"]
-[ext_resource type="Script" uid="uid://dj6od4pgnjnit" path="res://pending_task_list.gd" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://sekjmi0k6llw" path="res://complete_task_list.gd" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://dj6od4pgnjnit" path="res://task_list.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cuvfejuacarnl" path="res://task_list_c.gd" id="3_h2yge"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_hdtwm")
@@ -23,22 +23,30 @@ theme_override_font_sizes/font_size = 25
 placeholder_text = "type task here"
 wrap_mode = 1
 
-[node name="PendingTaskList" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 339.0
-offset_top = 136.0
-offset_right = 379.0
-offset_bottom = 176.0
+[node name="PendingTaskScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 336.0
+offset_top = 32.0
+offset_right = 728.0
+offset_bottom = 224.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PendingTaskList" type="VBoxContainer" parent="PendingTaskScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
 script = ExtResource("2_0xm2m")
 
-[node name="CompleteTaskList" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 340.0
-offset_top = 400.0
-offset_right = 380.0
-offset_bottom = 440.0
+[node name="CompleteTaskScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 336.0
+offset_top = 360.0
+offset_right = 728.0
+offset_bottom = 624.0
+
+[node name="CompleteTaskList" type="VBoxContainer" parent="CompleteTaskScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
 script = ExtResource("3_h2yge")
 
 [connection signal="pressed" from="AddTaskButton" to="." method="_on_add_task_button_pressed"]

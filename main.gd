@@ -1,7 +1,7 @@
 extends Node
 
 var completedTasks: int
-var taskPath = preload("res://task.tscn")
+var taskPath = preload("res://task_b.tscn")
 
 
 func _on_add_task_button_pressed():
@@ -10,14 +10,14 @@ func _on_add_task_button_pressed():
 
 func addTask(description: String):
 	var task = taskPath.instantiate()
-	$PendingTaskList.add_child(task)
+	$PendingTaskScrollContainer/PendingTaskList.add_child(task)
 	task.text = description
 	$TextEdit.text = ""
 	
 func unFinishTask(p_task):
-	p_task.reparent($PendingTaskList)
-	p_task.global_position = $PendingTaskList.global_position
+	p_task.reparent($PendingTaskScrollContainer/PendingTaskList)
+	p_task.global_position = $PendingTaskScrollContainer/PendingTaskList.global_position
 	
 func finishTask(c_task):
-	c_task.reparent($CompleteTaskList)
-	c_task.global_position = $CompleteTaskList.global_position
+	c_task.reparent($CompleteTaskScrollContainer/CompleteTaskList)
+	c_task.global_position = $CompleteTaskScrollContainer/CompleteTaskList.global_position
